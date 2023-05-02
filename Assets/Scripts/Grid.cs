@@ -11,8 +11,8 @@ public class Grid : MonoBehaviour
 
     public int width = 10;
     public int height = 10;
-    [Range(1,1.5f)]
-    public float _gridSpaceSize = 1.5f;
+    [Range(1,10f)]
+    public float _gridSpaceSize = 10f;
     
     // Start is called before the first frame update
     void Start()

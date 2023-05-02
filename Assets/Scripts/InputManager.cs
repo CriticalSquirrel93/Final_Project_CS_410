@@ -26,7 +26,7 @@ public class InputManager : MonoBehaviour
             
             if (cellMouseIsOver != null)
             {
-                if (cellMouseIsOver.GetComponent<MeshRenderer>().material.color != Color.green || cellMouseIsOver.GetComponent<MeshRenderer>().material.color != Color.red)
+                if (cellMouseIsOver.GetComponent<MeshRenderer>().material.color == Color.white)
                 {
                     cellMouseIsOver.GetComponent<MeshRenderer>().material.color = Color.green;
                 } else if (cellMouseIsOver.GetComponent<MeshRenderer>().material.color == Color.green)
