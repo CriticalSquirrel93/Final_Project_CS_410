@@ -635,6 +635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1142914479}
+  Health: 5
   enemyGoal: {fileID: 6833341387184255336, guid: 1c6f16bf9ac8ed448bc02283f595cc7c, type: 3}
 --- !u!195 &1142914479
 NavMeshAgent:

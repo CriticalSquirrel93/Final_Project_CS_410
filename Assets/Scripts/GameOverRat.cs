@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
 //using UnityEngine.InputSystem;
 //using TMPro;
 
 public class GameOverRat : MonoBehaviour
 {
-    public GameObject loseTextObject;
+    public TextMeshProUGUI LossText;
+
+
     // Start is called before the first frame update
     void Start()
     {
-       loseTextObject.SetActive(false); 
+       LossText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -20,8 +25,8 @@ public class GameOverRat : MonoBehaviour
 
     void OnCollision(Collision col)
     {
- //       if (col.GameObject.name("Goal")) {
-   //         loseTextObject.SetActive(true);
-  //     }
+       if (col.gameObject.CompareTag("Goal")) { 
+           LossText.gameObject.SetActive(true);
+       }
     }
 }

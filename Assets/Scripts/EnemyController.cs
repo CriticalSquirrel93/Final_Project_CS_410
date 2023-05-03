@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
 {
     public NavMeshAgent enemy;
     private Transform goalPos;
-    public int hp;
+    public int Health;
 
     [SerializeField] public GameObject enemyGoal;
     
@@ -22,13 +22,12 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //enemy.SetDestination();
-        
+
     }
 
-    void hit() {
-        hp = hp - 1;
-        if (hp <= 0) {
+    void Hit(int damage) {
+        Health -= damage;
+        if (Health <= 0) {
             Destroy(this.gameObject);
         }
     }
