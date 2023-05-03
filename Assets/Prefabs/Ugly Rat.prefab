@@ -481,7 +481,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6528868794793846154}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -594,6 +594,7 @@ GameObject:
   - component: {fileID: 6528868795450191279}
   - component: {fileID: 1142914478}
   - component: {fileID: 1142914479}
+  - component: {fileID: 633540526}
   m_Layer: 0
   m_Name: Ugly Rat
   m_TagString: Enemy
@@ -610,7 +611,7 @@ Transform:
   m_GameObject: {fileID: 6528868795450191276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6528868794793846158}
@@ -659,3 +660,17 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &633540526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6528868795450191276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 654a1eb89939d4fae81ac2fbf6f229a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lossText: {fileID: 0}
+  gameOverObject: {fileID: 0}

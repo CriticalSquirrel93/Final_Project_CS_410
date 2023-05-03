@@ -9,13 +9,14 @@ using UnityEngine.UI;
 
 public class GameOverRat : MonoBehaviour
 {
-    public TextMeshProUGUI LossText;
+    public TextMeshProUGUI lossText;
+    public GameObject gameOverObject;
 
 
     // Start is called before the first frame update
     void Start()
     {
-       LossText.gameObject.SetActive(false);
+        lossText.text = "";
     }
 
     // Update is called once per frame
@@ -23,10 +24,11 @@ public class GameOverRat : MonoBehaviour
     {   
     }
 
-    void OnCollision(Collision col)
+    void OnCollisionEnter(Collision col)
     {
-       if (col.gameObject.CompareTag("Goal")) { 
-           LossText.gameObject.SetActive(true);
+       if (col.gameObject.CompareTag("Goal"))
+       {
+           lossText.text = "Game Over";
        }
     }
 }
