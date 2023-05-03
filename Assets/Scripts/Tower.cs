@@ -15,6 +15,7 @@ public class Tower : MonoBehaviour
     void Start()
     {
         _bulletSpawner = transform.Find("BulletSpawner").gameObject;
+        target = GameObject.FindWithTag("Enemy");
     }
 
     void Update() {

@@ -642,7 +642,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 336629941}
         m_TargetAssemblyTypeName: StartGame, Assembly-CSharp
-        m_MethodName: loadlevel
+        m_MethodName: LoadLevel1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -702,7 +702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 176838af457b54a94afe820b97ede105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelname: Level 1
+  level1: {fileID: 0}
 --- !u!1 &372516714
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,7 +732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 176838af457b54a94afe820b97ede105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelname: Level 1
+  level1: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
 --- !u!4 &372516716
 Transform:
   m_ObjectHideFlags: 0
