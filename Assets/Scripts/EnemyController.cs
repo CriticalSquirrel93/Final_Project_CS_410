@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
 {
     public NavMeshAgent enemy;
     private Transform goalPos;
+    public int hp;
 
     [SerializeField] public GameObject enemyGoal;
     
@@ -23,5 +24,12 @@ public class EnemyController : MonoBehaviour
     {
         //enemy.SetDestination();
         
+    }
+
+    void hit() {
+        hp = hp - 1;
+        if (hp <= 0) {
+            Destroy(this.gameObject);
+        }
     }
 }
