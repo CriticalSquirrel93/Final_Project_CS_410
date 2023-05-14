@@ -8,26 +8,26 @@ using UnityEngine.UIElements;
 public class Tile : MonoBehaviour
 {
 
-    private GameObject tilePrefab;
+    private GameObject _tilePrefab;
 
     public GameObject itemOccupying;
 
-    [SerializeField] private int xPos;
-    [SerializeField] private int yPos;
+    [SerializeField] private float xPos;
+    [SerializeField] private float yPos;
 
     private void Start()
     {
         Vector3 pos = transform.position;
-        xPos = (int) pos.x;
-        yPos = (int) pos.z;
+        xPos = pos.x;
+        yPos = pos.z;
     }
 
-    public int GetCartesianXPos()
+    public float GetCartesianXPos()
     {
         return xPos;
     }
 
-    public int GetCartesianYPos()
+    public float GetCartesianYPos()
     {
         return yPos;
     }
