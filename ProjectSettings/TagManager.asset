@@ -7,16 +7,17 @@ TagManager:
   - Goal
   - EnemySpawn
   - Enemy
+  - EnemyContainer
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - isBuildable
+  - isBuildableStructures
   - Water
   - UI
-  - 
-  - 
-  - 
+  - IsBuildableGrowables
+  - isSpawner
+  - Enemy
   - 
   - 
   - 

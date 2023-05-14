@@ -611,8 +611,8 @@ Transform:
   m_GameObject: {fileID: 6528868795450191276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.2, z: 1.2}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 4, y: 3.2000003, z: 3.2000003}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6528868794793846158}
   - {fileID: 6528868795374159241}
@@ -635,9 +635,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c541032af81c120489b8d4d60a24414f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1142914479}
-  Health: 5
-  enemyGoal: {fileID: 6833341387184255336, guid: 1c6f16bf9ac8ed448bc02283f595cc7c, type: 3}
 --- !u!195 &1142914479
 NavMeshAgent:
   m_ObjectHideFlags: 0
