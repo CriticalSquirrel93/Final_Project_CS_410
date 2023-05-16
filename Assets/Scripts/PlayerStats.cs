@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -10,10 +11,10 @@ public class PlayerStats : MonoBehaviour
     public static int Money;
     public int levelStartMoney = 500;
 
-    public static int playerHP;
-    public int startingHP = 20;
+    public static int PlayerHp;
+    public int startingHp = 20;
 
-    public static int wavesSurvived;
+    public static int WavesSurvived;
 
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private TextMeshProUGUI hpText;
@@ -23,9 +24,9 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         Money = levelStartMoney;
-        playerHP = startingHP;
+        PlayerHp = startingHp;
 
-        wavesSurvived = 0;
+        WavesSurvived = 0;
     }
 
     public void AddMoney(int amount) {
@@ -38,7 +39,7 @@ public class PlayerStats : MonoBehaviour
 
     private void FixedUpdate()
     {
-        hpText.text = "HP : " + playerHP.ToString();
+        hpText.text = "HP : " + PlayerHp.ToString();
         moneyText.text = "Coins : " + Money.ToString();
     }
 }

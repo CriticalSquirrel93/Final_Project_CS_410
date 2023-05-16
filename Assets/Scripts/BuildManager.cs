@@ -33,7 +33,7 @@ public class BuildManager : MonoBehaviour
                 }
             }
             // Reset us back to the start.
-            SetBuildable(null);
+            ClearBuildable();
             DeselectNode();
         }
         
@@ -100,6 +100,12 @@ public class BuildManager : MonoBehaviour
     {
         Debug.Log("Selected " + buildable.gameObject.name);
         _selectedBuildable = buildable;
+    }
+
+    public void ClearBuildable()
+    {
+        Debug.Log("Attempted to clear buildable.");
+        _selectedBuildable = null;
     }
     
     public void PlaceBuildable(GameObject buildable)
