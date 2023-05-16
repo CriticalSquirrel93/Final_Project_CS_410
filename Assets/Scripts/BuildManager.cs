@@ -7,6 +7,7 @@ public class BuildManager : MonoBehaviour
 {
     [SerializeField] private Camera sceneCamera;
     [SerializeField] private LayerMask isBuildableLayer;
+    [SerializeField] private LayerMask isGrowableLayer;
 
     private Tile _selectedTile;
     private GameObject _selectedBuildable;
@@ -20,7 +21,12 @@ public class BuildManager : MonoBehaviour
             // If we are trying to build something, build it.
             if (_selectedBuildable != null)
             {
-                SelectNode();
+
+                if (_selectedBuildable.CompareTag("Tower") || _selectedBuildable.CompareTag("Wall")) {
+                    SelectNode(isBuildableLayer);
+                } else if (_selectedBuildable.CompareTag("Crop")) {
+                    SelectNode(isGrowableLayer);
+                }
                 if (_selectedTile != null)
                 {
                     PlaceBuildable(_selectedBuildable); 
@@ -35,7 +41,11 @@ public class BuildManager : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             // Get the node we are pointing at.
-            SelectNode();
+            if (_selectedBuildable.CompareTag("Tower") || _selectedBuildable.CompareTag("Wall")) {
+                SelectNode(isBuildableLayer);
+            } else if (_selectedBuildable.CompareTag("Crop")) {
+                SelectNode(isGrowableLayer);
+            }
             
             // If there is something there, delete it.
             if (_selectedTile.itemOccupying != null)
@@ -59,13 +69,13 @@ public class BuildManager : MonoBehaviour
         _instance = this;
     }
 
-    public void SelectNode()
+    public void SelectNode(LayerMask nodeMask)
     {
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = sceneCamera.nearClipPlane;
         Ray ray = sceneCamera.ScreenPointToRay(mousePos);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100, isBuildableLayer))
+        if (Physics.Raycast(ray, out hit, 100, nodeMask))
         {
             _selectedTile = hit.collider.gameObject.GetComponent<Tile>();
             Debug.Log("Selected x: " + _selectedTile.GetCartesianXPos() + ",Y: " + _selectedTile.GetCartesianYPos());

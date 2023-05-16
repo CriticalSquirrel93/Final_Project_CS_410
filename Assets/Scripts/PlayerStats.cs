@@ -28,6 +28,14 @@ public class PlayerStats : MonoBehaviour
         wavesSurvived = 0;
     }
 
+    public void AddMoney(int amount) {
+        Money += amount;
+    }
+
+    public void RemoveMoney(int amount) {
+        Money -= amount;
+    }
+
     private void FixedUpdate()
     {
         hpText.text = "HP : " + playerHP.ToString();

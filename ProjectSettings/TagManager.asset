@@ -8,6 +8,9 @@ TagManager:
   - EnemySpawn
   - Enemy
   - EnemyContainer
+  - Tower
+  - Wall
+  - Crop
   layers:
   - Default
   - TransparentFX
