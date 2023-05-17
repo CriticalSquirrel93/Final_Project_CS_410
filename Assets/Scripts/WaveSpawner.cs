@@ -30,7 +30,7 @@ public class WaveSpawner : MonoBehaviour
     {
         foreach (GameObject spawner in GameObject.FindGameObjectsWithTag("EnemySpawn"))
         {
-            Debug.Log("Adding spawner @ x : " + spawner.GetComponent<Tile>().GetCartesianXPos()  + ", y: " + spawner.GetComponent<Tile>().GetCartesianYPos() + " to the list");
+            //Debug.Log("Adding spawner @ x : " + spawner.GetComponent<Tile>().GetCartesianXPos()  + ", y: " + spawner.GetComponent<Tile>().GetCartesianYPos() + " to the list");
             _spawners.Add(spawner);
         }
     }

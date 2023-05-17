@@ -37,7 +37,7 @@ public class PlayerStats : MonoBehaviour
         Money -= amount;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         hpText.text = "HP : " + PlayerHp.ToString();
         moneyText.text = "Coins : " + Money.ToString();

@@ -11,6 +11,7 @@ TagManager:
   - Tower
   - Wall
   - Crop
+  - GrowableLocation
   layers:
   - Default
   - TransparentFX

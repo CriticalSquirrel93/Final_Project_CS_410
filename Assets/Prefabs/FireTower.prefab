@@ -43,6 +43,8 @@ GameObject:
   - component: {fileID: 3401899039752099333}
   - component: {fileID: 5870036935237857108}
   - component: {fileID: 7474372682736629270}
+  - component: {fileID: 2946140484736979486}
+  - component: {fileID: -8844070233563757371}
   m_Layer: 4
   m_Name: FireTower
   m_TagString: Tower
@@ -129,6 +131,38 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &2946140484736979486
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2473125279546095644}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!208 &-8844070233563757371
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2473125279546095644}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4939894777226654506
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +274,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3a7f98439c57b546b99c088d6584c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabBullet: {fileID: 9195710930953693993, guid: 25cc3587094963642808aed5d04d0f08, type: 3}
-  target: {fileID: 0}
-  bulletSpeed: 1000
-  delayTime: 5
+  range: 15
+  lineRenderer: {fileID: 0}
+  impactEffect: {fileID: 0}
+  impactLight: {fileID: 0}
+  enemyTag: Enemy
+  partToRotate: {fileID: 0}
+  turnSpeed: 10
+  firePoint: {fileID: 0}
+  useIce: 0
+  icePrefab: {fileID: 0}
+  fireRate: 1
+  useFire: 0
+  damageOverTime: 30
+  amount: 0
+  useLaser: 0

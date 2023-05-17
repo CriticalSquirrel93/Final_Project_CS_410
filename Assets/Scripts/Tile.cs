@@ -55,7 +55,7 @@ public class Tile : MonoBehaviour
     {
         if (itemOccupying != null)
         {
-            DestroyImmediate(transform.GetChild(0).gameObject);
+            DestroyImmediate(transform.GetChild(1).gameObject);
         }
         else
         {

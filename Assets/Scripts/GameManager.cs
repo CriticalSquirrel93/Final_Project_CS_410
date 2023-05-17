@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +12,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Object MainMenuScene;
 
+    [SerializeField]
+    private TextMeshProUGUI gameOverText;
+
     public GameObject gameOverUI;
     public GameObject victoryUI;
     
@@ -19,6 +23,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         GameIsOver = false;
+        gameOverText.enabled = false;
     }
 
     // Update is called once per frame
@@ -38,6 +43,7 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         GameIsOver = true;
+        gameOverText.enabled = false;
         gameOverUI.SetActive(true);
     }
 
@@ -49,7 +55,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Pause()

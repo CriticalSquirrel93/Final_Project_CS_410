@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -8,17 +10,31 @@ public class EnemyController : MonoBehaviour
 {
 
     public float initSpeed = 5f;
+    [SerializeField]
+    
+
 
     [HideInInspector]
     public float speed;
 
     public float initHealth;
+    public int damageAmount;
     private float _currentHealth;
+    
     private bool _isDead;
 
     public int currencyWorth;
 
     public Image healthBar;
+
+    private GameObject _pointOfExit;
+
+    private Transform goal;
+
+    private NavMeshAgent agent;
+
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,28 +42,30 @@ public class EnemyController : MonoBehaviour
         // Set initial values
         speed = initSpeed;
         _currentHealth = initHealth;
-
-        GameObject[] crops = GameObject.FindGameObjectsWithTag("Crop");
-        float shortestDistance = Mathf.Infinity;
-        GameObject closest;
-
-        for (var i = 0; i<crops.Length; i++) {
-            float distance = Vector3.Distance(transform.position, crops[i].transform.position);
-            if (distance < shortestDistance) {
-                shortestDistance = distance;
-                closest = crops[i];
-            }
-        }
-
-        //https://itnext.io/it-follows-creating-zombie-enemies-in-unity-part-3-of-unity-gamedev-series-988da87c8273
-        //pathfinder = GetComponent<Pathfinder>();
-        //target = GameObject.Find("");
-
+        _pointOfExit = GameObject.FindGameObjectWithTag("EnemySpawn");
     }
 
-    void Update() {
-        // pathfinder.SetDestination(target.position)
+    void FixedUpdate() {
+        
+        GameObject[] crops = GameObject.FindGameObjectsWithTag("Crop");
+        float shortestDistance = Mathf.Infinity;
+        GameObject closest = null;
+        agent = GetComponent<NavMeshAgent>();
 
+        foreach (GameObject crop in crops)
+        {
+            float distance = Vector3.Distance(transform.position, crop.transform.position);
+            if (distance < shortestDistance)
+            {
+                shortestDistance = distance;
+                closest = crop;
+                goal = closest.transform;
+            }
+        }
+        if (goal != null)
+        {
+            agent.destination = goal.transform.position;
+        }
     }
 
     public void TakeDamage(float amount)
@@ -55,13 +73,13 @@ public class EnemyController : MonoBehaviour
         _currentHealth -= amount;
 
         //healthBar.fillAmount = _currentHealth / initHealth;
-
+        
         if (_currentHealth <= 0 && !_isDead)
         {
             Die();
         }
     }
-    
+
     // Slow enemy by percentage
     public void Slow(float pct)
     {
@@ -75,6 +93,15 @@ public class EnemyController : MonoBehaviour
 
         PlayerStats.Money += currencyWorth;
         
+        WaveSpawner.EnemiesAlive--;
+        
+        Destroy(gameObject);
+    }
+    
+    public void DieWithNoMoney()
+    {
+        _isDead = true;
+
         WaveSpawner.EnemiesAlive--;
         
         Destroy(gameObject);

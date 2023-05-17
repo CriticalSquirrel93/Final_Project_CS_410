@@ -8,12 +8,12 @@
  
  public class SceneChanger : MonoBehaviour
  {
- 
-     public void LoadSceneSelect(string sceneLevel)
+     public void ChangeScene(Object sceneLevel)
      {
-         SceneManager.LoadScene(sceneLevel);
+         SceneManager.LoadScene(sceneLevel.name);
+         //SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
      }
-
+     
      // Quits game
      public void Quit()
      {
