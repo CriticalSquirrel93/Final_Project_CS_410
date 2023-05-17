@@ -8,6 +8,7 @@ public class Tower : MonoBehaviour
 
     private Transform target;
     private EnemyController targetEnemy;
+    [SerializeField] public int TowerCost;
 
     public float range = 15f;
     

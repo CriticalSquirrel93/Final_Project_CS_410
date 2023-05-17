@@ -22,11 +22,21 @@ public class BuildManager : MonoBehaviour
             if (_selectedBuildable != null)
             {
 
-                if (_selectedBuildable.CompareTag("Tower") || _selectedBuildable.CompareTag("Wall")) {
-                    SelectNode(isBuildableLayer);
+                if (_selectedBuildable.CompareTag("Tower") || _selectedBuildable.CompareTag("Wall"))
+                {
+                    int cost = _selectedBuildable.GetComponent<Tower>().TowerCost;
+                    if (cost <= PlayerStats.Money)
+                    {
+                        SelectNode(isBuildableLayer);
+                        PlayerStats.Money -= cost;
+                    }
+                    
                 } else if (_selectedBuildable.CompareTag("Crop")) {
                     SelectNode(isGrowableLayer);
                 }
+                
+                
+                
                 if (_selectedTile != null)
                 {
                     PlaceBuildable(_selectedBuildable); 

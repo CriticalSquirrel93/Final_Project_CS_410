@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3a7f98439c57b546b99c088d6584c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TowerCost: 250
   range: 15
   lineRenderer: {fileID: 9074421264707622877}
   impactEffect: {fileID: 1932449602982705435}

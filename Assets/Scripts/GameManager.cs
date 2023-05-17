@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     {
         GameIsOver = true;
         gameOverText.enabled = true;
-        gameOverUI.SetActive(true);
+        //gameOverUI.SetActive(true);
         Pause();
     }
 

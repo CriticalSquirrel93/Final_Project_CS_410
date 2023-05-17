@@ -41,6 +41,7 @@ public class EnemyController : MonoBehaviour
         speed = initSpeed;
         _currentHealth = initHealth;
         _pointOfExit = GameObject.FindGameObjectWithTag("EnemySpawn");
+        deathSfx = transform.GetComponent<AudioSource>();
     }
 
     void FixedUpdate() {
