@@ -26,6 +26,28 @@ public class EnemyController : MonoBehaviour
         // Set initial values
         speed = initSpeed;
         _currentHealth = initHealth;
+
+        GameObject[] crops = GameObject.FindGameObjectsWithTag("Crop");
+        float shortestDistance = Mathf.Infinity;
+        GameObject closest;
+
+        for (var i = 0; i<crops.Length; i++) {
+            float distance = Vector3.Distance(transform.position, crops[i].transform.position);
+            if (distance < shortestDistance) {
+                shortestDistance = distance;
+                closest = crops[i];
+            }
+        }
+
+        //https://itnext.io/it-follows-creating-zombie-enemies-in-unity-part-3-of-unity-gamedev-series-988da87c8273
+        //pathfinder = GetComponent<Pathfinder>();
+        //target = GameObject.Find("");
+
+    }
+
+    void Update() {
+        // pathfinder.SetDestination(target.position)
+
     }
 
     public void TakeDamage(float amount)
