@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         GameIsOver = false;
+        isPaused = false;
         gameOverText.enabled = false;
     }
 
@@ -34,6 +35,11 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        if (!isPaused && Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
+
         if (PlayerStats.PlayerHp <= 0)
         {
             GameOver();
@@ -43,8 +49,9 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         GameIsOver = true;
-        gameOverText.enabled = false;
+        gameOverText.enabled = true;
         gameOverUI.SetActive(true);
+        Pause();
     }
 
     public void Win()

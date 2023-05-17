@@ -10,29 +10,27 @@ public class EnemyController : MonoBehaviour
 {
 
     public float initSpeed = 5f;
-    [SerializeField]
     
-
-
     [HideInInspector]
     public float speed;
 
+    // Init values & other stats
     public float initHealth;
     public int damageAmount;
     private float _currentHealth;
-    
-    private bool _isDead;
-
     public int currencyWorth;
-
-    public Image healthBar;
-
-    private GameObject _pointOfExit;
-
-    private Transform goal;
-
+    
+    // Navigation
     private NavMeshAgent agent;
 
+    // UI
+    public Image healthBar;
+
+    // Death management
+    private bool _isDead;
+    private GameObject _pointOfExit;
+    private Transform goal;
+    [SerializeField] private AudioSource deathSfx;
     
 
 
@@ -89,21 +87,26 @@ public class EnemyController : MonoBehaviour
     // Process enemy death
     private void Die()
     {
+        // Flag as dead
         _isDead = true;
-
-        PlayerStats.Money += currencyWorth;
         
+        // credit player money and reduce total enemy count.
+        PlayerStats.Money += currencyWorth;
         WaveSpawner.EnemiesAlive--;
         
+        // Play sfx and delete instance of enemy
+        deathSfx.Play();
         Destroy(gameObject);
     }
     
     public void DieWithNoMoney()
     {
+        // Flag as dead
         _isDead = true;
-
+        // Reduce total enemy count
         WaveSpawner.EnemiesAlive--;
-        
+        // Delete enemy with no sfx.
+        deathSfx.Play();
         Destroy(gameObject);
     }
 }

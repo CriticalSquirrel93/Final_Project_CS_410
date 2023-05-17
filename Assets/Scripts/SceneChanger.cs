@@ -8,9 +8,9 @@
  
  public class SceneChanger : MonoBehaviour
  {
-     public void ChangeScene(Object sceneLevel)
+     public void ChangeScene(string sceneLevel)
      {
-         SceneManager.LoadScene(sceneLevel.name);
+         SceneManager.LoadScene(sceneLevel);
          //SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
      }
      
