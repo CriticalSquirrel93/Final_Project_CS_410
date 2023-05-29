@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI gameOverText;
 
+    public GameObject pauseUI;
     public GameObject gameOverUI;
     public GameObject victoryUI;
     
@@ -24,7 +25,11 @@ public class GameManager : MonoBehaviour
     {
         GameIsOver = false;
         isPaused = false;
-        gameOverText.enabled = false;
+        //gameOverText.enabled = false;
+        // jasmine did this 
+        gameOverUI.SetActive(false);
+        pauseUI.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -49,8 +54,8 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         GameIsOver = true;
-        gameOverText.enabled = true;
-        //gameOverUI.SetActive(true);
+        //gameOverText.enabled = true;
+        gameOverUI.SetActive(true); // jasmine did 
         Pause();
     }
 
@@ -70,12 +75,16 @@ public class GameManager : MonoBehaviour
         if (!isPaused)
         {
             isPaused = true;
+            pauseUI.SetActive(true);
             Time.timeScale = 0;
+            //pauseUI.SetActive(true);
         }
         else
         {
             isPaused = false;
+            pauseUI.SetActive(false);
             Time.timeScale = 1;
+            //pauseUI.SetActive(false);
         }
     }
 
