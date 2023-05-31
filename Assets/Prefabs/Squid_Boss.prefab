@@ -704,7 +704,7 @@ GameObject:
   - component: {fileID: 6684556832495574667}
   - component: {fileID: 8485461815427784596}
   m_Layer: 0
-  m_Name: Squid
+  m_Name: Squid_Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -812,7 +812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initSpeed: 3
   speed: 0
-  initHealth: 54
+  initHealth: 150
   damageAmount: 3
   currencyWorth: 36
   healthBar: {fileID: 0}
