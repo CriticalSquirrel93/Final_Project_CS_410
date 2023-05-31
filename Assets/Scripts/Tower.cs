@@ -34,14 +34,14 @@ public class Tower : MonoBehaviour
     [Header("Use Fire")] 
     
     public bool useFire = false;
-
+    public GameObject firePrefab;
     public int damageOverTime = 30;
     public float amount;
     
     [Header("Use Laser")] 
     
     public bool useLaser = false;
-
+    public int damage = 9;
 
     void Start()
     {

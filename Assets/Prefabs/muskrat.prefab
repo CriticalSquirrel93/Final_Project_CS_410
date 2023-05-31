@@ -321,11 +321,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c541032af81c120489b8d4d60a24414f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initSpeed: 5
+  initSpeed: 6
   speed: 0
-  initHealth: 20
-  damageAmount: 2
-  currencyWorth: 100
+  initHealth: 24
+  damageAmount: 1
+  currencyWorth: 18
   healthBar: {fileID: 0}
   deathSfx: {fileID: 0}
 --- !u!195 &3390755389133154329
@@ -338,7 +338,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 6
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
