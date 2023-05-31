@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8567316861595241071}
   - component: {fileID: 8567316861595241056}
   m_Layer: 0
-  m_Name: RatWave_Level1_2 1
+  m_Name: Level_2_Wave_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ef0747641dc38488aac85e556f9655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 826842715880841887, guid: 6199c9496a0b94d9e9503cd8a0a268c6, type: 3}
+  enemy: {fileID: 6842458599697738422, guid: 7587d6723e51b6a409a1661c9bbba1aa, type: 3}
   count: 15
-  rate: 2
+  rate: 1
