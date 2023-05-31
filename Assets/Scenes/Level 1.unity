@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641228, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1949,7 +1949,7 @@ Transform:
   - {fileID: 1786080067}
   - {fileID: 544163914}
   - {fileID: 568113997}
-  - {fileID: 1914288144}
+  - {fileID: 1870742976}
   - {fileID: 1844859117}
   - {fileID: 192886939}
   - {fileID: 1209052317}
@@ -1961,7 +1961,6 @@ Transform:
   - {fileID: 951896441}
   - {fileID: 515669108}
   - {fileID: 250154250}
-  - {fileID: 1870742976}
   - {fileID: 903820435}
   - {fileID: 59611133}
   - {fileID: 1089508415}
@@ -1969,6 +1968,7 @@ Transform:
   - {fileID: 481159663}
   - {fileID: 1817574762}
   - {fileID: 1763468442}
+  - {fileID: 1280516156}
   - {fileID: 74078819}
   - {fileID: 2004939037}
   - {fileID: 1095274652}
@@ -1985,7 +1985,6 @@ Transform:
   - {fileID: 1745693089}
   - {fileID: 32506171}
   - {fileID: 1937768589}
-  - {fileID: 1280516156}
   - {fileID: 1549691565}
   - {fileID: 1056573657}
   - {fileID: 2081410942}
@@ -3874,7 +3873,7 @@ Transform:
   - {fileID: 17697618}
   - {fileID: 1121561092}
   m_Father: {fileID: 339142598}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &923573616
 PrefabInstance:
@@ -5898,7 +5897,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 339142598}
-  m_RootOrder: 46
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1285341626
 GameObject:
@@ -8726,7 +8725,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 339142598}
-  m_RootOrder: 22
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1889150741
 PrefabInstance:
@@ -8961,11 +8960,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890555038}
   m_Mesh: {fileID: 4493585093827132993, guid: 2bf334b81d282452cac6c31e0277248e, type: 3}
---- !u!4 &1914288144 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 08662e17cec06404395ac64868e0c615, type: 3}
-  m_PrefabInstance: {fileID: 1743434647}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1923976600
 GameObject:
   m_ObjectHideFlags: 0
