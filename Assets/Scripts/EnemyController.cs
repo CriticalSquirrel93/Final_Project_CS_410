@@ -95,9 +95,14 @@ public class EnemyController : MonoBehaviour
         PlayerStats.Money += currencyWorth;
         WaveSpawner.EnemiesAlive--;
         
-        // Play sfx and delete instance of enemy
-        deathSfx.Play();
-        Destroy(gameObject);
+        // Play death sfx and delete instance of enemy
+        if (deathSfx != null)
+        {
+            deathSfx.Play();
+        }
+        float delay = deathSfx.clip.length;
+        Destroy(gameObject, delay);
+        //Destroy(gameObject);
     }
     
     public void DieWithNoMoney()
@@ -107,7 +112,11 @@ public class EnemyController : MonoBehaviour
         // Reduce total enemy count
         WaveSpawner.EnemiesAlive--;
         // Delete enemy with no sfx.
-        deathSfx.Play();
+        // Play death sfx and delete instance of enemy
+        if (deathSfx != null)
+        {
+            deathSfx.Play();
+        }
         Destroy(gameObject);
     }
 }
