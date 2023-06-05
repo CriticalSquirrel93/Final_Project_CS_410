@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: -3770700417069601746}
   - component: {fileID: 2796119343356066497}
   m_Layer: 0
-  m_Name: Muskrat
+  m_Name: muskrat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -717,7 +717,7 @@ MonoBehaviour:
   damageAmount: 1
   currencyWorth: 18
   healthBar: {fileID: 0}
-  deathSfx: {fileID: -3414059445932675889}
+  deathSfx: {fileID: 0}
 --- !u!82 &-3414059445932675889
 AudioSource:
   m_ObjectHideFlags: 0
@@ -736,7 +736,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 157
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

@@ -487,7 +487,7 @@ GameObject:
   - component: {fileID: -7211664948906132596}
   - component: {fileID: 8696653503703884491}
   m_Layer: 0
-  m_Name: Deer
+  m_Name: deer
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -612,7 +612,6 @@ MonoBehaviour:
   damageAmount: 1
   currencyWorth: 36
   healthBar: {fileID: 0}
-  deathSfx: {fileID: -7211664948906132596}
 --- !u!195 &-3391396689829273157
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -646,7 +645,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 462f5139aeb3243f098995570debca9c, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 0.364
   m_Pitch: 1
   Loop: 0
