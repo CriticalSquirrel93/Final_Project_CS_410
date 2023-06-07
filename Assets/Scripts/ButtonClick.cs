@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ButtonClick : MonoBehaviour
 {
     public AudioClip clickSoundClip;
+    public float delay = 0.1f; // Delay in seconds before destroying the old scene
     private static AudioSource audioSource;
 
     private void Awake()
@@ -34,5 +36,14 @@ public class ButtonClick : MonoBehaviour
         {
             audioSource.PlayOneShot(clickSoundClip);
         }
+
+        // Delay the destruction of the old scene by the specified duration
+        Invoke("DestroyOldScene", delay);
+    }
+
+    private void DestroyOldScene()
+    {
+        // Destroy the game object that holds the old scene
+        Destroy(gameObject);
     }
 }

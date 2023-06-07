@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -7262315966519271788}
   - component: {fileID: 1735033379708580491}
   - component: {fileID: 5556425109375501592}
+  - component: {fileID: -3235665992363619308}
   m_Layer: 0
   m_Name: Herring
   m_TagString: Enemy
@@ -153,9 +154,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: abf65bf5c14e345bebcd8845a76dbf13, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.13
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -261,6 +262,31 @@ NavMeshAgent:
   m_BaseOffset: 0.52
   m_WalkableMask: 5
   m_ObstacleAvoidanceType: 4
+--- !u!169 &-3235665992363619308
+AudioLowPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342889782683910774}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_LowpassResonanceQ: 1
+  lowpassLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.114506595
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1915371716169189145
 GameObject:
   m_ObjectHideFlags: 0
