@@ -57,6 +57,13 @@ public class GameManager : MonoBehaviour
         //gameOverText.enabled = true;
         gameOverUI.SetActive(true); // jasmine did 
         Pause();
+
+        // Stop the audio
+        AudioSource audioSource = FindObjectOfType<AudioSource>();
+        if (audioSource != null)
+        {
+            audioSource.Stop();
+        }
     }
 
     public void Win()

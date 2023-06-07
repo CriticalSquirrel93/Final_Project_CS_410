@@ -3,7 +3,7 @@ using UnityEngine;
 // applies a low pass filter to all audio sources in the scene (level 3) 
 // which makes it sound underwater 
 
-public class lowPassFilter : MonoBehaviour
+public class LowPassFilter : MonoBehaviour
 {
     public float cutoffFrequency = 500.0f;
     public float lowpassResonanceQ = 1.0f;

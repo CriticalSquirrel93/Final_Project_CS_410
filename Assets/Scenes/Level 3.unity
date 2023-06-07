@@ -407,7 +407,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6dc038f61c0ee4d67922804013e9ba06, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 03ff31a81187b4a8398cb866ae595f76, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.37
   m_Pitch: 1
@@ -505,7 +505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4f296cf88db4138919056d76970f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutoffFrequency: 500
+  cutoffFrequency: 2000
   lowpassResonanceQ: 1
 --- !u!1001 &32506170
 PrefabInstance:

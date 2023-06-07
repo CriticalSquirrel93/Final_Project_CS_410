@@ -224,7 +224,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6dc038f61c0ee4d67922804013e9ba06, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 03ff31a81187b4a8398cb866ae595f76, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.406
   m_Pitch: 1
@@ -1546,7 +1546,6 @@ Transform:
   - {fileID: 903372117}
   - {fileID: 705507995}
   - {fileID: 1961632997}
-  - {fileID: 1743434648}
   - {fileID: 1507783260}
   - {fileID: 1549691565}
   - {fileID: 1029932849}
@@ -1605,7 +1604,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1743434648}
-  m_RootOrder: 212
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &359196410
 MeshRenderer:
@@ -4657,7 +4656,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1743434648}
-  m_RootOrder: 208
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &978164895
 MeshRenderer:
@@ -7407,7 +7406,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1743434648}
-  m_RootOrder: 210
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1716960033
 MeshRenderer:
@@ -9952,7 +9951,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1743434648}
-  m_RootOrder: 209
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1749084237
 MeshRenderer:
@@ -10541,7 +10540,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1743434648}
-  m_RootOrder: 211
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2074597716
 MeshRenderer:
