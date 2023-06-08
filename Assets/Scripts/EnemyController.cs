@@ -30,6 +30,7 @@ public class EnemyController : MonoBehaviour
     private bool _isDead;
     private GameObject _pointOfExit;
     private Transform goal;
+    private Animator enemyAnimator;
     [SerializeField] private AudioSource deathSfx;
     
 
@@ -42,6 +43,7 @@ public class EnemyController : MonoBehaviour
         _currentHealth = initHealth;
         _pointOfExit = GameObject.FindGameObjectWithTag("EnemySpawn");
         deathSfx = transform.GetComponent<AudioSource>();
+        enemyAnimator = GetComponent<Animator>();
     }
 
     void FixedUpdate() {
@@ -95,6 +97,8 @@ public class EnemyController : MonoBehaviour
         PlayerStats.Money += currencyWorth;
         WaveSpawner.EnemiesAlive--;
         
+        enemyAnimator.SetBool("_isDead", true);
+    
         // Play death sfx and delete instance of enemy
         if (deathSfx != null)
         {
@@ -111,6 +115,9 @@ public class EnemyController : MonoBehaviour
         _isDead = true;
         // Reduce total enemy count
         WaveSpawner.EnemiesAlive--;
+
+        enemyAnimator.SetBool("_isDead", true);
+
         // Delete enemy with no sfx.
         // Play death sfx and delete instance of enemy
         if (deathSfx != null)
