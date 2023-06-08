@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
     public int currencyWorth;
     
     // Navigation
-    private NavMeshAgent agent;
+    private NavMeshAgent _agent;
 
     // UI
     public Image healthBar;
@@ -29,10 +29,9 @@ public class EnemyController : MonoBehaviour
     // Death management
     private bool _isDead;
     private GameObject _pointOfExit;
-    private Transform goal;
-    private Animator enemyAnimator;
+    private Transform _goal;
+    private Animator _enemyAnimator;
     [SerializeField] private AudioSource deathSfx;
-    
 
 
     // Start is called before the first frame update
@@ -43,7 +42,7 @@ public class EnemyController : MonoBehaviour
         _currentHealth = initHealth;
         _pointOfExit = GameObject.FindGameObjectWithTag("EnemySpawn");
         deathSfx = transform.GetComponent<AudioSource>();
-        enemyAnimator = GetComponent<Animator>();
+        _enemyAnimator = GetComponent<Animator>();
     }
 
     void FixedUpdate() {
@@ -51,7 +50,7 @@ public class EnemyController : MonoBehaviour
         GameObject[] crops = GameObject.FindGameObjectsWithTag("Crop");
         float shortestDistance = Mathf.Infinity;
         GameObject closest = null;
-        agent = GetComponent<NavMeshAgent>();
+        _agent = GetComponent<NavMeshAgent>();
 
         foreach (GameObject crop in crops)
         {
@@ -60,12 +59,12 @@ public class EnemyController : MonoBehaviour
             {
                 shortestDistance = distance;
                 closest = crop;
-                goal = closest.transform;
+                _goal = closest.transform;
             }
         }
-        if (goal != null)
+        if (_goal != null)
         {
-            agent.destination = goal.transform.position;
+            _agent.destination = _goal.transform.position;
         }
     }
 
@@ -96,8 +95,12 @@ public class EnemyController : MonoBehaviour
         // credit player money and reduce total enemy count.
         PlayerStats.Money += currencyWorth;
         WaveSpawner.EnemiesAlive--;
+        // set position to self so we stop moving.
+        _agent.destination = _agent.transform.position;
         
-        enemyAnimator.SetBool("_isDead", true);
+        // Flag animator for animation
+        // _enemyAnimator.SetBool("IsDead", true);
+        _enemyAnimator.Play("Death");
     
         // Play death sfx and delete instance of enemy
         if (deathSfx != null)
@@ -116,14 +119,15 @@ public class EnemyController : MonoBehaviour
         // Reduce total enemy count
         WaveSpawner.EnemiesAlive--;
 
-        enemyAnimator.SetBool("_isDead", true);
-
         // Delete enemy with no sfx.
         // Play death sfx and delete instance of enemy
         if (deathSfx != null)
         {
             deathSfx.Play();
         }
-        Destroy(gameObject);
+        if (_enemyAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+        {
+            Destroy(gameObject);
+        }
     }
 }
