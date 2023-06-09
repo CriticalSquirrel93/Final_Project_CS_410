@@ -29,7 +29,8 @@ Transform:
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7588934930281563876}
   m_Father: {fileID: 4939996705135754}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 13896b90f57e8bb4f807d0e390cb3f8f, type: 2}
+  - {fileID: 2100000, guid: db81fa3f5e93332408c991a16b717609, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -117,7 +118,6 @@ Transform:
   m_Children:
   - {fileID: 4519941387849242}
   - {fileID: 4795538350151362}
-  - {fileID: 7588934930281563876}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -143,12 +143,11 @@ MonoBehaviour:
   turnSpeed: 10
   firePoint: {fileID: 7588934930281563876}
   useIce: 0
-  icePrefab: {fileID: 0}
   fireRate: 1
+  slowAmount: 0.5
   useFire: 0
-  firePrefab: {fileID: 0}
   damageOverTime: 30
-  amount: 9
+  duration: 0
   useLaser: 1
   damage: 9
 --- !u!208 &8206254203083431081
@@ -385,7 +384,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2996189283119466741}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 4.55, z: 1.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -393,8 +392,8 @@ Transform:
   - {fileID: 2092534881611834480}
   - {fileID: 7654010417137479927}
   - {fileID: 7433724813188567312}
-  m_Father: {fileID: 4939996705135754}
-  m_RootOrder: 2
+  m_Father: {fileID: 4519941387849242}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4210594501121468053
 GameObject:
@@ -516,7 +515,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4510926188073764200}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.55, z: -1.45}
+  m_LocalPosition: {x: 0, y: -0, z: 4.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1158,7 +1157,7 @@ ParticleSystem:
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 0, z: 0}
+    m_Rotation: {x: 0, y: 180, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
@@ -5327,7 +5326,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7748894849647701705}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.02, z: -0}
+  m_LocalPosition: {x: 0, y: -2.38, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

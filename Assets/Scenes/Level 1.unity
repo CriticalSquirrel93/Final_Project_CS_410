@@ -503,7 +503,7 @@ MonoBehaviour:
         m_MethodName: SetBuildable
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2473125279546095644, guid: a96f1a8957b88014eaee2e8c3160afa3, type: 3}
+          m_ObjectArgument: {fileID: 7251436340651972970, guid: ab0afd31fff9c434999d938a4d972239, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2003,7 +2003,7 @@ MonoBehaviour:
         m_MethodName: SetBuildable
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2473125279546095644, guid: e762d8c3c1b6dff4cba59827651e55e0, type: 3}
+          m_ObjectArgument: {fileID: 7251436340651972970, guid: c602c1d63ed6b1a41a346ac6c2c83659, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -3869,7 +3869,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: W
+  m_text: 'W
+
+    0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5206,7 +5208,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'I
 
-    NA'
+    100'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7829,6 +7831,10 @@ MonoBehaviour:
   isGrowableLayer:
     serializedVersion: 2
     m_Bits: 64
+  WallItem: {fileID: 4935466095018112510, guid: 83008348d82d7da49b2f9676a1855dc5, type: 3}
+  LaserItem: {fileID: 7251436340651972970, guid: 4a6f96d7e059a594a8efd84277aa4089, type: 3}
+  FireItem: {fileID: 7251436340651972970, guid: ab0afd31fff9c434999d938a4d972239, type: 3}
+  IceItem: {fileID: 7251436340651972970, guid: c602c1d63ed6b1a41a346ac6c2c83659, type: 3}
 --- !u!1 &1938911991
 GameObject:
   m_ObjectHideFlags: 0
@@ -7889,7 +7895,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'F
 
-    NA'
+    300'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

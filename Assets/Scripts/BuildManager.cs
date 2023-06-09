@@ -16,6 +16,11 @@ public class BuildManager : MonoBehaviour
     private static BuildManager _instance;
     private int _cost;
 
+    [SerializeField] private GameObject WallItem;
+    [SerializeField] private GameObject LaserItem;
+    [SerializeField] private GameObject FireItem;
+    [SerializeField] private GameObject IceItem;
+
     private void Start()
     {
         _cost = 0;
@@ -31,9 +36,9 @@ public class BuildManager : MonoBehaviour
             // If we are trying to build something, build it.
             if (_selectedBuildable != null)
             {
-                if (_selectedBuildable.GetComponent<Tower>())
+                if (_selectedBuildable.GetComponentInChildren<Tower>())
                 {
-                    _cost = _selectedBuildable.GetComponent<Tower>().TowerCost;
+                    _cost = _selectedBuildable.GetComponentInChildren<Tower>().TowerCost;
                 }
                 else
                 {
@@ -68,6 +73,26 @@ public class BuildManager : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
                 ClearBuildable();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                _selectedBuildable = WallItem;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                _selectedBuildable = LaserItem;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                _selectedBuildable = FireItem;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                _selectedBuildable = IceItem;
             }
         }
         

@@ -24,16 +24,15 @@ public class Tower : MonoBehaviour
     
     [Header("Use Ice")]
     public bool useIce = false;
-    public GameObject icePrefab;
     public float fireRate = 1f;
     private float _fireCountdown = 0f;
+    public float slowAmount = 0.5f;
 
     
     [Header("Use Fire")]
     public bool useFire = false;
-    public GameObject firePrefab;
     public int damageOverTime = 30;
-    public float amount;
+    public float duration;
     
     
     [Header("Use Laser")]
@@ -50,16 +49,9 @@ public class Tower : MonoBehaviour
     {
         if (target == null)
         {
-            if (useLaser)
-            {
-                if (lineRenderer.enabled)
-                {
-                    lineRenderer.enabled = false;
-                    impactEffect.Stop();
-                    impactLight.enabled = false;
-                }
-            }
-
+            lineRenderer.enabled = false;
+            impactEffect.Stop();
+            impactLight.enabled = false;
             return;
         }
 
@@ -68,16 +60,12 @@ public class Tower : MonoBehaviour
         if (useLaser)
         {
             Laser();
-        }
-        else
+        } else if (useFire)
         {
-            if (_fireCountdown <= 0f)
-            {
-                Shoot();
-                _fireCountdown = 1f / fireRate;
-            }
-
-            _fireCountdown -= Time.deltaTime;
+            Fire();
+        } else if (useIce)
+        {
+            Ice();
         }
     }
 
@@ -125,13 +113,12 @@ public class Tower : MonoBehaviour
 
     private void Laser()
     {
-        targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
+        targetEnemy.TakeDamage(damage);
 
         if (!lineRenderer.enabled)
         {
             lineRenderer.enabled = true;
             impactEffect.Play();
-            impactLight.enabled = true;
         }
         
         lineRenderer.SetPosition(0, firePoint.position);
@@ -145,17 +132,40 @@ public class Tower : MonoBehaviour
 
     private void Fire()
     {
-        throw new NotImplementedException();
+        targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
+
+        if (!lineRenderer.enabled)
+        {
+            lineRenderer.enabled = true;
+            impactEffect.Play();
+        }
+        
+        lineRenderer.SetPosition(0, firePoint.position);
+        lineRenderer.SetPosition(1, target.position);
+
+        Vector3 dir = firePoint.position - target.position;
+
+        impactEffect.transform.position = firePoint.position + dir.normalized;
+        impactEffect.transform.rotation = Quaternion.LookRotation(-dir);
     }
 
     private void Ice()
     {
-        throw new NotImplementedException();
-    }
+        targetEnemy.Slow(slowAmount);
 
-    private void Shoot()
-    {
-        throw new NotImplementedException();
+        if (!lineRenderer.enabled)
+        {
+            lineRenderer.enabled = true;
+            impactEffect.Play();
+        }
+        
+        lineRenderer.SetPosition(0, firePoint.position);
+        lineRenderer.SetPosition(1, target.position);
+
+        Vector3 dir = firePoint.position - target.position;
+
+        impactEffect.transform.position = firePoint.position + dir.normalized;
+        impactEffect.transform.rotation = Quaternion.LookRotation(-dir);
     }
 
     private void OnDrawGizmosSelected()
