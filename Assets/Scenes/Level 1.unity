@@ -1078,7 +1078,7 @@ MonoBehaviour:
         m_MethodName: SetBuildable
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1326093064322132, guid: a425124410f363a43adb6788601cc3e0, type: 3}
+          m_ObjectArgument: {fileID: 7251436340651972970, guid: 4a6f96d7e059a594a8efd84277aa4089, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -8153,7 +8153,7 @@ MonoBehaviour:
         m_MethodName: SetBuildable
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 7203773172431991116, guid: 7c0a4ce5e3ca0c7438171399429f435c, type: 3}
+          m_ObjectArgument: {fileID: 4935466095018112510, guid: 83008348d82d7da49b2f9676a1855dc5, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0

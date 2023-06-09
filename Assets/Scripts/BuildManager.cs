@@ -31,7 +31,15 @@ public class BuildManager : MonoBehaviour
             // If we are trying to build something, build it.
             if (_selectedBuildable != null)
             {
-                _cost = _selectedBuildable.GetComponent<Tower>().TowerCost;
+                if (_selectedBuildable.GetComponent<Tower>())
+                {
+                    _cost = _selectedBuildable.GetComponent<Tower>().TowerCost;
+                }
+                else
+                {
+                    _cost = 0;
+                }
+                
                 if (_cost <= _gameManager.playerStats.Money)
                 {
                     SelectTile(isBuildableLayer);
