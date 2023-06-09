@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = System.Random;
 
 // Shamelessly based on to a fair extent, Brackeys How to make a Tower Defense Game series from youtube
@@ -12,19 +13,22 @@ using Random = System.Random;
 public class WaveSpawner : MonoBehaviour
 {
 
-    public static int EnemiesAlive = 0;
+    public int EnemiesAlive { get; set; }
 
     public Wave[] waves;
 
     private List<GameObject> _spawners = new List<GameObject>();
 
-    public float timeBetweenWaves = 5f;
-    private float _countdown = 2f;
-
     [SerializeField]
-    private TextMeshProUGUI _waveCountdownText;
+    public float timeBetweenWaves = 10f;
+    [SerializeField]
+    public float initialCountdownDelay = 20f;
+
+    [SerializeField] private TextMeshProUGUI waveCountdownText;
+    [SerializeField] private TextMeshProUGUI waveCountText;
     
-    private int _waveIndex = 0;
+    
+    public int WaveIndex { get; private set; }
 
     private void Start()
     {
@@ -33,6 +37,7 @@ public class WaveSpawner : MonoBehaviour
             //Debug.Log("Adding spawner @ x : " + spawner.GetComponent<Tile>().GetCartesianXPos()  + ", y: " + spawner.GetComponent<Tile>().GetCartesianYPos() + " to the list");
             _spawners.Add(spawner);
         }
+        WaveIndex = 0;
     }
 
     private void Update()
@@ -42,23 +47,24 @@ public class WaveSpawner : MonoBehaviour
             return;
         }
 
-        if (_waveIndex == waves.Length)
+        if (WaveIndex == waves.Length)
         {
             this.enabled = false;
         }
 
-        if (_countdown <= 0f)
+        if (initialCountdownDelay <= 0f)
         {
             StartCoroutine(SpawnWave());
-            _countdown = timeBetweenWaves;
+            initialCountdownDelay = timeBetweenWaves;
             return;
         }
 
-        _countdown -= Time.deltaTime;
+        initialCountdownDelay -= Time.deltaTime;
 
-        _countdown = Mathf.Clamp(_countdown, 0f, Mathf.Infinity);
+        initialCountdownDelay = Mathf.Clamp(initialCountdownDelay, 0f, Mathf.Infinity);
 
-        _waveCountdownText.text = string.Format("{0:00.00}", _countdown);
+        waveCountdownText.text = string.Format("{0:00.00}", initialCountdownDelay);
+        waveCountText.text = "Wave : " + WaveIndex + "/" + waves.Length;
     }
 
 
@@ -66,7 +72,7 @@ public class WaveSpawner : MonoBehaviour
     {
         PlayerStats.WavesSurvived++;
 
-        Wave wave = waves[_waveIndex];
+        Wave wave = waves[WaveIndex];
 
         EnemiesAlive = wave.count;
 
@@ -76,7 +82,7 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(1f / wave.rate);
         }
 
-        _waveIndex++;
+        WaveIndex++;
     }
 
     GameObject GetRandomSpawnLocation()
@@ -95,7 +101,6 @@ public class WaveSpawner : MonoBehaviour
         GameObject spawnLoc = GetRandomSpawnLocation();
 
         GameObject temp = Instantiate(enemy, new Vector3(spawnLoc.GetComponent<Tile>().GetCartesianXPos(), spawnLoc.gameObject.transform.position.y + (transform.lossyScale.y * transform.lossyScale.y), spawnLoc.GetComponent<Tile>().GetCartesianYPos()), Quaternion.identity);
-        temp.transform.parent = GameObject.FindGameObjectWithTag("EnemyContainer").transform;
-
+        temp.transform.parent = transform;
     }
 }

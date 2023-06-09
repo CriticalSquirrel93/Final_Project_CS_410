@@ -9,9 +9,19 @@ public class BuildManager : MonoBehaviour
     [SerializeField] private LayerMask isBuildableLayer;
     [SerializeField] private LayerMask isGrowableLayer;
 
+    private GameManager _gameManager;
+    
     private Tile _selectedTile;
     private GameObject _selectedBuildable;
     private static BuildManager _instance;
+    private int _cost;
+
+    private void Start()
+    {
+        _cost = 0;
+        _selectedBuildable = null;
+        _gameManager = FindObjectOfType<GameManager>();
+    }
 
     private void Update()
     { 
@@ -21,30 +31,36 @@ public class BuildManager : MonoBehaviour
             // If we are trying to build something, build it.
             if (_selectedBuildable != null)
             {
-
-                if (_selectedBuildable.CompareTag("Tower") || _selectedBuildable.CompareTag("Wall"))
+                _cost = _selectedBuildable.GetComponent<Tower>().TowerCost;
+                if (_cost <= _gameManager.playerStats.Money)
                 {
-                    int cost = _selectedBuildable.GetComponent<Tower>().TowerCost;
-                    if (cost <= PlayerStats.Money)
-                    {
-                        SelectNode(isBuildableLayer);
-                        PlayerStats.Money -= cost;
-                    }
-                    
-                } else if (_selectedBuildable.CompareTag("Crop")) {
-                    SelectNode(isGrowableLayer);
+                    SelectTile(isBuildableLayer);
+                    _gameManager.playerStats.Money -= _cost;
                 }
-                
-                
-                
+
                 if (_selectedTile != null)
                 {
-                    PlaceBuildable(_selectedBuildable); 
+                    PlaceBuildable(_selectedBuildable);
                 }
             }
-            // Reset us back to the start.
-            ClearBuildable();
-            DeselectNode();
+            
+            // If Shift is depressed, continue building that buildable
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                DeselectTile();
+            }
+            else
+            {
+                // otherwise clear everything
+                ClearBuildable();
+                DeselectTile();
+            }
+
+            // If the shift key is let go, clear the selected buildable
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                ClearBuildable();
+            }
         }
         
         // OnRightClick
@@ -52,9 +68,9 @@ public class BuildManager : MonoBehaviour
         {
             // Get the node we are pointing at.
             if (_selectedBuildable.CompareTag("Tower") || _selectedBuildable.CompareTag("Wall")) {
-                SelectNode(isBuildableLayer);
+                SelectTile(isBuildableLayer);
             } else if (_selectedBuildable.CompareTag("Crop")) {
-                SelectNode(isGrowableLayer);
+                SelectTile(isGrowableLayer);
             }
             
             // If there is something there, delete it.
@@ -79,7 +95,7 @@ public class BuildManager : MonoBehaviour
         _instance = this;
     }
 
-    public void SelectNode(LayerMask nodeMask)
+    public void SelectTile(LayerMask nodeMask)
     {
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = sceneCamera.nearClipPlane;
@@ -92,30 +108,23 @@ public class BuildManager : MonoBehaviour
         }
     }
 
-    public void DeselectNode()
+    public void DeselectTile()
     {
-        if (_selectedTile != null)
-        {
-            Debug.Log("Deselected x: " + _selectedTile.GetCartesianXPos() + ",Y: " + _selectedTile.GetCartesianYPos());
-            _selectedTile = null;
-        }
-        else
-        {
-            Debug.LogError("Tried to deselect when no node was selected.");
-            // Do nothing
-        }
+        _selectedTile = null;
     }
 
     public void SetBuildable(GameObject buildable)
     {
         Debug.Log("Selected " + buildable.gameObject.name);
         _selectedBuildable = buildable;
+        DeselectTile();
     }
 
     public void ClearBuildable()
     {
         Debug.Log("Attempted to clear buildable.");
         _selectedBuildable = null;
+        _cost = 0;
     }
     
     public void PlaceBuildable(GameObject buildable)

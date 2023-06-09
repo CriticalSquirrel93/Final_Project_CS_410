@@ -10,7 +10,7 @@ public class Grid : MonoBehaviour
     private List<GameObject> _tiles = new List<GameObject>();
 
     // Start is called before the first frame update
-    void Start()
+    void Start ()
     {
         foreach (Transform child in transform)
         {
@@ -32,5 +32,4 @@ public class Grid : MonoBehaviour
 
         return null;
     }
-    
 }

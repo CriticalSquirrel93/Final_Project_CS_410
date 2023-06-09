@@ -33,6 +33,9 @@ public class EnemyController : MonoBehaviour
     private Animator _enemyAnimator;
     [SerializeField] private AudioSource deathSfx;
 
+    private GameManager _gameManager;
+    private WaveSpawner _waveSpawner;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +46,8 @@ public class EnemyController : MonoBehaviour
         _pointOfExit = GameObject.FindGameObjectWithTag("EnemySpawn");
         deathSfx = transform.GetComponent<AudioSource>();
         _enemyAnimator = GetComponent<Animator>();
+        _gameManager = FindObjectOfType<GameManager>();
+        _waveSpawner = _gameManager.waveSpawner;
     }
 
     void FixedUpdate() {
@@ -93,8 +98,8 @@ public class EnemyController : MonoBehaviour
         _isDead = true;
         
         // credit player money and reduce total enemy count.
-        PlayerStats.Money += currencyWorth;
-        WaveSpawner.EnemiesAlive--;
+        _gameManager.playerStats.Money += currencyWorth;
+        _waveSpawner.EnemiesAlive--;
         // set position to self so we stop moving.
         _agent.destination = _agent.transform.position;
         
@@ -117,7 +122,7 @@ public class EnemyController : MonoBehaviour
         // Flag as dead
         _isDead = true;
         // Reduce total enemy count
-        WaveSpawner.EnemiesAlive--;
+        _waveSpawner.EnemiesAlive--;
 
         // Delete enemy with no sfx.
         // Play death sfx and delete instance of enemy

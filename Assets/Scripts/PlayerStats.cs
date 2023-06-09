@@ -8,10 +8,10 @@ using UnityEngine.Serialization;
 public class PlayerStats : MonoBehaviour
 {
 
-    public static int Money;
+    public int Money { get; set; }
     public int levelStartMoney = 500;
 
-    public static int PlayerHp;
+    public int PlayerHp { get; set; }
     public int startingHp = 20;
 
     public static int WavesSurvived;

@@ -9,40 +9,38 @@ public class Tower : MonoBehaviour
     private Transform target;
     private EnemyController targetEnemy;
     [SerializeField] public int TowerCost;
-
     public float range = 15f;
     
-    [Header("Shared")]
     
+    [Header("Shared")]
     public LineRenderer lineRenderer;
     public ParticleSystem impactEffect;
     public Light impactLight;
-
     public string enemyTag = "Enemy";
-
     public Transform partToRotate;
     public float turnSpeed = 10f;
     public Transform firePoint;
 
-    [Header("Use Ice")] 
     
+    [Header("Use Ice")]
     public bool useIce = false;
     public GameObject icePrefab;
     public float fireRate = 1f;
     private float _fireCountdown = 0f;
 
-    [Header("Use Fire")] 
     
+    [Header("Use Fire")]
     public bool useFire = false;
     public GameObject firePrefab;
     public int damageOverTime = 30;
     public float amount;
     
-    [Header("Use Laser")] 
     
+    [Header("Use Laser")]
     public bool useLaser = false;
     public int damage = 9;
 
+    
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);

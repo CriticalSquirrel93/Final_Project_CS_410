@@ -9,7 +9,6 @@ public class Tile : MonoBehaviour
 {
 
     private GameObject _tilePrefab;
-
     public GameObject itemOccupying;
 
     [SerializeField] private float xPos;

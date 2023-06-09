@@ -1,59 +1,80 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using TMPro;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static bool GameIsOver;
+    public static bool gameIsOver;
     public static bool isPaused;
+    public static bool isVictorious;
 
-    [SerializeField] private Object MainMenuScene;
-
-    [SerializeField]
-    private TextMeshProUGUI gameOverText;
-
+    private int _cropValue;
+    
+    public WaveSpawner waveSpawner;
+    [HideInInspector]
+    public PlayerStats playerStats;
     public GameObject pauseUI;
     public GameObject gameOverUI;
     public GameObject victoryUI;
-    
-    
+    [SerializeField]
+    private GameObject cropContainer;
+
+    private void Awake()
+    {
+        waveSpawner = GetComponent<WaveSpawner>();
+        playerStats = GetComponent<PlayerStats>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        GameIsOver = false;
+        _cropValue = playerStats.startingHp / cropContainer.transform.childCount;
+        
+        gameIsOver = false;
         isPaused = false;
-        //gameOverText.enabled = false;
+        isVictorious = false;
         // jasmine did this 
         gameOverUI.SetActive(false);
         pauseUI.SetActive(false);
-
+        victoryUI.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameIsOver)
+        // If game is over, stop updating stuff.
+        if (gameIsOver)
         {
             return;
         }
 
+        // If game is paused, stop time.
         if (!isPaused && Time.timeScale == 0)
         {
             Time.timeScale = 1;
         }
 
-        if (PlayerStats.PlayerHp <= 0)
+        // If HP hits zero. Lose game.
+        if (playerStats.PlayerHp <= 0)
         {
             GameOver();
+        }
+
+        // If last wave & all enemies are dead. Win the game.
+        if (waveSpawner.WaveIndex >= waveSpawner.waves.Length && waveSpawner.EnemiesAlive == 0)
+        {
+            Win();
+        }
+
+        if (cropContainer.transform.childCount * _cropValue > playerStats.PlayerHp && cropContainer.transform.childCount > 1)
+        {
+            Destroy(cropContainer.transform.GetChild(0).gameObject);
         }
     }
 
     void GameOver()
     {
-        GameIsOver = true;
+        gameIsOver = true;
         //gameOverText.enabled = true;
         gameOverUI.SetActive(true); // jasmine did 
         Pause();
@@ -68,7 +89,7 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
-        GameIsOver = true;
+        gameIsOver = true;
         victoryUI.SetActive(true);
     }
 
@@ -81,7 +102,7 @@ public class GameManager : MonoBehaviour
     {
         if (!isPaused)
         {
-            if (GameIsOver != true) {
+            if (gameIsOver != true) {
             isPaused = true;
             pauseUI.SetActive(true);
             Time.timeScale = 0;
@@ -95,10 +116,5 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
             //pauseUI.SetActive(false);
         }
-    }
-
-    public void MainMenu()
-    {
-        SceneManager.LoadScene(MainMenuScene.name);
     }
 }
