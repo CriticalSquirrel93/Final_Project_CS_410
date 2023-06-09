@@ -81,9 +81,11 @@ public class GameManager : MonoBehaviour
     {
         if (!isPaused)
         {
+            if (GameIsOver != true) {
             isPaused = true;
             pauseUI.SetActive(true);
             Time.timeScale = 0;
+            }
             //pauseUI.SetActive(true);
         }
         else
